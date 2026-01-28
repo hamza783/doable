@@ -1,24 +1,15 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Simple todo app using Rails 8.0
 
-Things you may want to cover:
+* Ruby version: 3.4.4
 
-* Ruby version
+* Rails version: 8.0.4
 
-* System dependencies
+Start the app:
 
-* Configuration
+```bash
+bin/rails server
+```
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Navigate to http://localhost:3000/todos or http://localhost:3000/projects to see the app.
