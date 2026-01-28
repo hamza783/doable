@@ -6,6 +6,11 @@ Simple todo app using Rails 8.0
 
 * Rails version: 8.0.4
 
+To create/migrate the database:
+```bash
+bin/rails db:migrate
+```
+
 Start the app:
 
 ```bash
