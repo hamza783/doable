@@ -1,21 +1,23 @@
 class ProjectsController < ApplicationController
+  # allow_unauthenticated_access only: %i[ index ]
+  before_action :set_project, only: %i[show edit update destroy]
+
   def index
-    @projects = Project.all
+    @projects = Current.user.projects
   end
 
   def show
     # /projects/1
     # params = { id: "1"}
-    @project = Project.find(params[:id])
   end
 
   def new
-    @project = Project.new
+    @project = Current.user.projects.new
   end
 
   def create
     # { project: { name: "" }}
-    @project = Project.new(project_params)
+    @project = Current.user.projects.new(project_params)
     if @project.save
       flash[:notice] = "Project created successfully"
       redirect_to project_path(@project)
@@ -27,11 +29,9 @@ class ProjectsController < ApplicationController
   end
 
   def edit
-    @project = Project.find(params[:id])
   end
 
   def update
-    @project = Project.find(params[:id])
     if @project.update(project_params)
       flash[:notice] = "Project updated successfully"
       redirect_to project_path(@project)
@@ -43,12 +43,15 @@ class ProjectsController < ApplicationController
   end
 
   def destroy
-    @project = Project.find(params[:id])
-
     @project.destroy
 
     flash[:notice] = "Project deleted successfully"
     redirect_to projects_path
+  end
+
+  private
+  def set_project
+    @project = Current.user.projects.find(params[:id])
   end
 
   def project_params

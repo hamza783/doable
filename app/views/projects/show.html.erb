@@ -1,10 +1,11 @@
 <h1><%= @project.name %></h1>
 <ul>
   <% @project.todos.each do |todo|%>
-    <li>
+    <li class="list-disc list-inside">
       <%= link_to todo.name, todo_path(todo) %>
       <% if todo.completed %> (Completed)<% end %>
     </li>
   <% end %>
 </ul>
-<%= button_to "Delete Project", project_path(@project), method: :delete %>
+
+<%= button_to "Delete Project", project_path(@project), method: :delete, class: "w-full sm:w-auto text-center rounded-md my-2.5 px-2.5 py-1.5 bg-red-600 hover:bg-red-500 text-white inline-block font-medium cursor-pointer" %>

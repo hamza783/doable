@@ -4,13 +4,15 @@
 
 <h1>Todos</h1>
 
-<div id="todos">
+<div id="todos" class="space-y-4">
   <% @todos.each do |todo| %>
-    <%= render todo %>
-    <p>
-      <%= link_to "Show this todo", todo %>
-    </p>
+    <div class="border border-gray-200 rounded-lg p-4">
+      <%= render todo %>
+      <p>
+        <%= link_to "Show this todo", todo, class: "w-full sm:w-auto text-center rounded-md my-4.5 px-2.5 py-1.5 bg-green-600 hover:bg-green-500 text-white inline-block font-medium cursor-pointer" %>
+      </p>
+    </div>
   <% end %>
 </div>
 
-<%= link_to "New todo", new_todo_path %>
+<%= link_to "New todo", new_todo_path, class: "w-full sm:w-auto text-center rounded-md my-4.5 px-2.5 py-1.5 bg-blue-600 hover:bg-blue-500 text-white inline-block font-medium cursor-pointer" %>

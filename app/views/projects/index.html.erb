@@ -1,7 +1,12 @@
 <h1>Projects</h1>
 
-<ul>
+<div class="space-y-4">
   <% @projects.each do |project| %>
-    <li><%= link_to project.name, project_path(project) %></li>
+    <div class="border border-gray-200 rounded-lg p-4">
+      <%= render project %>
+      <%= link_to "Show this project", project_path(project), class: "w-full sm:w-auto text-center rounded-md my-4.5 px-2.5 py-1.5 bg-green-600 hover:bg-green-500 text-white inline-block font-medium cursor-pointer" %>
+    </div>
   <% end %>
 </ul>
+
+<%= link_to "New Project", new_project_path, class: "w-full sm:w-auto text-center rounded-md my-4.5 px-2.5 py-1.5 bg-blue-600 hover:bg-blue-500 text-white inline-block font-medium cursor-pointer" %>

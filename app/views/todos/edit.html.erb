@@ -2,11 +2,11 @@
 
 <h1>Editing todo</h1>
 
-<%= render "form", todo: @todo %>
-
-<br>
-
-<div>
-  <%= link_to "Show this todo", @todo %> |
-  <%= link_to "Back to todos", todos_path %>
+<div class="max-w-4xl mx-auto border border-gray-200 rounded-lg p-4">
+  <%= render "form", todo: @todo %>
+  <br>
+  <div>
+    <%= link_to "Show this todo", @todo, class: "inline-block text-blue-600 hover:text-blue-800" %> |
+    <%= link_to "Back to todos", todos_path, class: "inline-block text-blue-600 hover:text-blue-800" %>
+  </div>
 </div>

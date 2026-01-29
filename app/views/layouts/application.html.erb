@@ -26,6 +26,41 @@
     <% if flash[:notice] %>
       <p class="flash"><%= flash[:notice] %></p>
     <% end %>
-    <%= yield %>
+    <div class="min-h-full">
+      <nav class="bg-gray-800 shadow-sm">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div class="flex h-16 justify-between">
+            <div class="flex">
+              <% if Current.user %>
+                <div class="hidden sm:-my-px sm:ml-6 sm:flex sm:space-x-8">
+                  <% projects_active = request.path.include?("/projects") %>
+                  <%= link_to "Projects", projects_path,
+                    class: [
+                      "inline-flex items-center px-1 pt-1 text-sm font-medium",
+                      (projects_active ? "border-b-2 border-indigo-400 text-gray-100" : "text-gray-300 hover:text-gray-100"),
+                    ].join(" ") %>
+                </div>
+                <div class="hidden sm:-my-px sm:ml-6 sm:flex sm:space-x-8">
+                  <% todos_active = request.path.include?("/todos") %>
+                  <%= link_to "Todos", todos_path,
+                    class: [
+                      "inline-flex items-center px-1 pt-1 text-sm font-medium",
+                      (todos_active ? "border-b-2 border-indigo-400 text-gray-100" : "text-gray-300 hover:text-gray-100"),
+                    ].join(" ") %>
+                </div>
+              <% end %>
+            </div>
+            <div class="hidden sm:-my-px sm:ml-6 sm:flex sm:space-x-8">
+              <% if Current.user %>
+                <%= button_to "Logout", session_path, method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-700 text-gray-100 font-medium hover:bg-gray-600" %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <main class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-6">
+      <%= yield %>
+    </main>
   </body>
 </html>
