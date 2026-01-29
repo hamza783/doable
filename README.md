@@ -11,6 +11,11 @@ To create/migrate the database:
 bin/rails db:migrate
 ```
 
+To seed the database with some users (check `db/fixtures/users.yml` for users to log in with or create a new user):
+```bash
+bin/rails db:fixtures:load
+```
+
 Start the app:
 
 ```bash
