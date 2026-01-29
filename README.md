@@ -6,20 +6,22 @@ Simple todo app using Rails 8.0
 
 * Rails version: 8.0.4
 
-To create/migrate the database:
+To run the app, do the following steps:
+
+1. Create/migrate the database:
 ```bash
 bin/rails db:migrate
 ```
 
-To seed the database with some users (check `db/fixtures/users.yml` for users to log in with or create a new user):
+2. Seed the database with some users (check `db/fixtures/users.yml` for users to log in with or create a new user):
 ```bash
 bin/rails db:fixtures:load
 ```
 
-Start the app:
+3. Start the app:
 
 ```bash
-bin/rails server
+bin/dev
 ```
 
 Navigate to http://localhost:3000/todos or http://localhost:3000/projects to see the app.
